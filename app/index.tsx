@@ -4,11 +4,15 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Link, SplashScreen } from "expo-router";
 import { useFonts } from "expo-font";
 import { useCallback } from "react";
-import { WALLET_FONTS } from "./crypto_wallet/(constant)/theme";
 
 export default () => {
   const [fontsLoaded, fontError] = useFonts({
     "Inter-Black": require("../assets/fonts/Inter-Black.ttf"),
+    "Inter-Bold": require("../assets/fonts/Inter-Bold.ttf"),
+    "Inter-Regular": require("../assets/fonts/Inter-Regular.ttf"),
+    "Inter-Medium": require("../assets/fonts/Inter-Medium.ttf"),
+    "Inter-SemiBold": require("../assets/fonts/Inter-SemiBold.ttf"),
+    "Inter-Thin": require("../assets/fonts/Inter-Thin.ttf"),
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -24,7 +28,7 @@ export default () => {
   return (
     <View style={styles.constainer} onLayout={onLayoutRootView}>
       <SafeAreaView>
-        <Text style={[WALLET_FONTS.h1]}>APPS LIST</Text>
+        <Text>APPS LIST</Text>
         {APP_LIST.map((app, index) => (
           <Link key={index} href={app.route}>
             <View style={styles.app_list}>

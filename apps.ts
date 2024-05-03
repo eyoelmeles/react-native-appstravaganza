@@ -10,8 +10,8 @@ export const APP_LIST = [
     icon: "",
   },
   {
-    name: "PAYMENT",
-    route: "food_delivery",
+    name: "SABI-PAYMENT",
+    route: "sabi-pay",
     icon: "",
   },
   {
