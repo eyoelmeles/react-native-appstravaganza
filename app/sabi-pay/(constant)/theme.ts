@@ -3,7 +3,7 @@ const { width, height } = Dimensions.get("window");
 
 export const WALLET_COLORS = {
   // base colors
-  primary: "#24C16B", // green
+  primary: "#A0E86F", // green
   secondary: "#0C381F", // dark green
 
   green: "#66D59A",
