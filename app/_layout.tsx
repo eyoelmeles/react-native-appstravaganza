@@ -7,7 +7,7 @@ export default function Layout() {
         name="food_delivery/(tabs)"
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="sabi-pay/(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="sabi-pay" options={{ headerShown: false }} />
     </Stack>
   );
 }

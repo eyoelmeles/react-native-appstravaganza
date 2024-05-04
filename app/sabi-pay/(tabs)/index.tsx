@@ -62,7 +62,7 @@ const SabiPayHome = () => {
   }, []);
   return (
     <View style={styles.container}>
-      <SafeAreaView>
+      <View>
         <View style={styles.topView}>
           <View style={styles.header}>
             <Ionicons name="menu" size={22} />
@@ -113,7 +113,7 @@ const SabiPayHome = () => {
             />
           ))}
         </View>
-      </SafeAreaView>
+      </View>
     </View>
   );
 };
