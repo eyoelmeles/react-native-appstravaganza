@@ -13,35 +13,35 @@ import { router } from "expo-router";
 
 const onboardingData = [
   {
-    _id: 1,
+    _id: 0,
     title: "Welcome to Our App",
     description: "Discover the features and benefits of our app.",
-    image: "../../assets/favicon.png",
+    image: "../../../assets/favicon.png",
+  },
+  {
+    _id: 1,
+    title: "Easy Navigation",
+    description: "Find what you need quickly with our intuitive interface.",
+    image: "../../../assets/favicon.png",
   },
   {
     _id: 2,
-    title: "Easy Navigation",
-    description: "Find what you need quickly with our intuitive interface.",
-    image: "../../assets/favicon.png",
+    title: "Personalized Experience",
+    description: "Customize your settings to make the app your own.",
+    image: "../../../assets/favicon.png",
   },
   {
     _id: 3,
-    title: "Personalized Experience",
-    description: "Customize your settings to make the app your own.",
-    image: "../../assets/favicon.png",
-  },
-  {
-    _id: 4,
     title: "Connect with Others",
     description:
       "Join our community and connect with like-minded indiv_iduals.",
-    image: "../../assets/favicon.png",
+    image: "../../../assets/favicon.png",
   },
   {
-    _id: 5,
+    _id: 4,
     title: "Get Started",
     description: "Create your account and start using our app today.",
-    image: "../../assets/favicon.png",
+    image: "../../../assets/favicon.png",
   },
 ];
 

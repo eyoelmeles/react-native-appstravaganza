@@ -56,14 +56,17 @@ const Onboarding: React.FC<OnboardingProps> = ({
   const [currentPage, setCurrentPage] = useState(0);
   const [viewableItems, setViewableItems] = useState<OnboardingItem[]>([]);
 
-  const handleViewableItemsChanged = useRef(
-    ({ viewableItems }: { viewableItems: OnboardingItem[] }) => {
-      setViewableItems(viewableItems);
-    }
-  );
+  const handleViewableItemsChanged = ({
+    viewableItems,
+  }: {
+    viewableItems: any;
+  }) => {
+    setViewableItems(viewableItems);
+  };
 
   useEffect(() => {
     if (!viewableItems[0] || currentPage === viewableItems[0]._id) return;
+    console.log(viewableItems[0]);
     setCurrentPage(viewableItems[0]._id);
   }, [viewableItems]);
 
@@ -110,7 +113,113 @@ const Onboarding: React.FC<OnboardingProps> = ({
   };
 
   const renderBottomSection = () => {
-    // ...
+    return (
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          paddingHorizontal: SIZES.base * 2,
+          paddingVertical: SIZES.base * 2,
+        }}
+      >
+        {/* Pagination */}
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          {
+            // No. of dots
+            [...Array(data.length)].map((_, index) => (
+              <View
+                key={index}
+                style={{
+                  width: 10,
+                  height: 10,
+                  borderRadius: 5,
+                  backgroundColor: WALLET_COLORS.darkgray,
+                  marginRight: 8,
+                  opacity: index == currentPage ? 1 : 0.2,
+                }}
+              />
+            ))
+          }
+        </View>
+
+        {/* Next or GetStarted button */}
+        {/* Show or Hide Next button & GetStarted button by screen */}
+        {currentPage != data.length - 1 ? (
+          <TouchableOpacity
+            onPress={handleNext}
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 60,
+              height: 60,
+              borderRadius: 30,
+              backgroundColor: COLORS.primary,
+            }}
+            activeOpacity={0.8}
+          >
+            <AntDesignIcons
+              name="right"
+              style={{
+                fontSize: 18,
+                color: buttonIconColor ? buttonIconColor : COLORS.text,
+                opacity: 0.3,
+              }}
+            />
+            <AntDesignIcons
+              name="right"
+              style={{
+                fontSize: 25,
+                color: buttonIconColor ? buttonIconColor : COLORS.text,
+                marginLeft: -15,
+              }}
+            />
+          </TouchableOpacity>
+        ) : (
+          // Get Started Button
+          <TouchableOpacity
+            style={{
+              paddingHorizontal: SIZES.base * 2,
+              height: 60,
+              borderRadius: 30,
+              backgroundColor: COLORS.primary,
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            onPress={onFinish}
+          >
+            <Text
+              style={{
+                color: buttonIconColor ? buttonIconColor : COLORS.text,
+                fontSize: 18,
+                marginLeft: SIZES.base,
+              }}
+            >
+              Get Started
+            </Text>
+            <AntDesignIcons
+              name="right"
+              style={{
+                fontSize: 18,
+                color: buttonIconColor ? buttonIconColor : COLORS.text,
+                opacity: 0.3,
+                marginLeft: SIZES.base,
+              }}
+            />
+            <AntDesignIcons
+              name="right"
+              style={{
+                fontSize: 25,
+                color: buttonIconColor ? buttonIconColor : COLORS.text,
+                marginLeft: -15,
+              }}
+            />
+          </TouchableOpacity>
+        )}
+      </View>
+    );
   };
 
   const renderFlatlistItem = ({ item }: { item: OnboardingItem }) => {
@@ -129,7 +238,7 @@ const Onboarding: React.FC<OnboardingProps> = ({
             marginVertical: SIZES.base * 2,
           }}
         >
-          {/* <Image source={require(item.image)} /> */}
+          <Image source={require("../../../assets/favicon.png")} />
         </View>
         <View
           style={{
@@ -164,6 +273,11 @@ const Onboarding: React.FC<OnboardingProps> = ({
     );
   };
 
+  const handleViewableItemsChange = useRef((x: any) => {
+    console.log(x.viewableItems);
+    // alert(x);
+  });
+
   return (
     <SafeAreaView
       style={{
@@ -186,13 +300,14 @@ const Onboarding: React.FC<OnboardingProps> = ({
         keyExtractor={(item) => item._id.toString()}
         renderItem={renderFlatlistItem}
         ref={flatlistRef}
-        // onViewableItemsChanged={handleViewableItemsChanged.current}
+        onViewableItemsChanged={handleViewableItemsChanged}
+        // onViewableItemsChanged={handleViewableItemsChange.current}
         viewabilityConfig={{ viewAreaCoveragePercentThreshold: 10 }}
         initialNumToRender={1}
         extraData={SIZES.width}
         bounces={false}
       />
-      {/* {renderBottomSection()} */}
+      {renderBottomSection()}
     </SafeAreaView>
   );
 };
