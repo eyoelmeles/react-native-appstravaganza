@@ -9,6 +9,7 @@ import React from "react";
 import { WALLET_COLORS, WALLET_FONTS } from "./(constant)/theme";
 import Button from "./(components)/button";
 import Onboarding from "./(screens)/onboarding";
+import { router } from "expo-router";
 
 const onboardingData = [
   {
@@ -44,8 +45,12 @@ const onboardingData = [
   },
 ];
 
+const handleFinish = () => {
+  router.push("/sabi-pay/(tabs)");
+};
+
 const OnBoarding = () => {
-  return <Onboarding data={onboardingData} onFinish={() => {}} />;
+  return <Onboarding data={onboardingData} onFinish={handleFinish} />;
 };
 
 export default OnBoarding;

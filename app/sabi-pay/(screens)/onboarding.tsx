@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AntDesignIcons from "@expo/vector-icons/AntDesign";
+import { WALLET_COLORS, WALLET_FONTS } from "../(constant)/theme";
 
 interface OnboardingProps {
   data: OnboardingItem[];
@@ -90,7 +91,22 @@ const Onboarding: React.FC<OnboardingProps> = ({
   };
 
   const renderTopSection = () => {
-    // ...
+    return (
+      <View
+        style={{
+          display: "flex",
+          width: "100%",
+          flexDirection: "row",
+          alignItems: "center",
+          padding: 4,
+          justifyContent: "flex-end",
+        }}
+      >
+        <TouchableOpacity onPress={handleSkipToEnd}>
+          <Text style={[{ ...WALLET_FONTS.body4 }]}>Skip</Text>
+        </TouchableOpacity>
+      </View>
+    );
   };
 
   const renderBottomSection = () => {
@@ -113,7 +129,7 @@ const Onboarding: React.FC<OnboardingProps> = ({
             marginVertical: SIZES.base * 2,
           }}
         >
-          <Image source={require(item.image)} />
+          {/* <Image source={require(item.image)} /> */}
         </View>
         <View
           style={{
@@ -149,7 +165,7 @@ const Onboarding: React.FC<OnboardingProps> = ({
   };
 
   return (
-    <View
+    <SafeAreaView
       style={{
         flex: 1,
         backgroundColor: COLORS.background,
@@ -160,7 +176,8 @@ const Onboarding: React.FC<OnboardingProps> = ({
         barStyle={colorScheme === "dark" ? "light-content" : "dark-content"}
         backgroundColor={COLORS.background}
       />
-      {/* {renderTopSection()} */}
+      {renderTopSection()}
+
       <FlatList
         data={data}
         pagingEnabled
@@ -176,7 +193,7 @@ const Onboarding: React.FC<OnboardingProps> = ({
         bounces={false}
       />
       {/* {renderBottomSection()} */}
-    </View>
+    </SafeAreaView>
   );
 };
 
