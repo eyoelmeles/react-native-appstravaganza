@@ -6,8 +6,9 @@ import {
 } from "react-native-reanimated";
 import BasicSVG from "@/basics/svg";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import SwipteCarousel from "@/basics/scroll/swipe_carousel";
-import Carousel3D from "@/basics/scroll/3d_carousel";
+import SwipteCarousel from "@/basics/scroll/carousel/swipe_carousel";
+import Carousel3D from "@/basics/scroll/carousel/3d_carousel";
+import VerticalSlide from "@/basics/scroll/slide/vertical_slide";
 
 export default function AnimatedStyleUpdateExample() {
   const randomWidth = useSharedValue(10);
@@ -28,7 +29,8 @@ export default function AnimatedStyleUpdateExample() {
       {/* <GestureMovement /> */}
       {/* <BasicSVG /> */}
       {/* <SwipteCarousel /> */}
-      <Carousel3D />
+      {/* <Carousel3D /> */}
+      <VerticalSlide />
     </GestureHandlerRootView>
   );
 }
