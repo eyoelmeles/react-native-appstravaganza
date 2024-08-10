@@ -1,7 +1,5 @@
 import * as React from "react";
 import {
-  FlatList,
-  Image,
   Animated,
   Text,
   View,
@@ -99,7 +97,7 @@ const Content = ({ item }: any) => {
 const Carousel3D = () => {
   const scrollX = React.useRef(new Animated.Value(0)).current;
   const [index, setIndex] = React.useState(0);
-  const flatListRef = React.useRef();
+  const flatListRef = React.useRef<any>();
   const progress = Animated.modulo(Animated.divide(scrollX, width), width);
   return (
     <View style={{ backgroundColor: "#A5F1FA", flex: 1 }}>
