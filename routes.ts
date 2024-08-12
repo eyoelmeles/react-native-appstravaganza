@@ -9,6 +9,9 @@ import SharedElementOptions, {
   Detail as SharedElementOptionDetail,
 } from "@/basics/shared_element/shared_element_options";
 import WelcomeScreenCarousel from "@/basics/scroll/carousel/welcome_screen_carousel";
+import PartialWidthCarousel from "@/basics/scroll/carousel/partial_width";
+import DynamicWidth from "@/basics/scroll/carousel/dynamic_width";
+import SocialVideoNav from "@/apps/social_video";
 
 export const routes = [
   {
@@ -62,5 +65,17 @@ export const routes = [
   {
     route: "WelcomeScreenCarousel",
     component: WelcomeScreenCarousel,
+  },
+  {
+    route: "PartialWidthCarousel",
+    component: PartialWidthCarousel,
+  },
+  {
+    route: "DynamicWidth",
+    component: DynamicWidth,
+  },
+  {
+    route: "SocialVideoNav",
+    component: SocialVideoNav,
   },
 ];

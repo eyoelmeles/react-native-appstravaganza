@@ -1120,6 +1120,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@expo-google-fonts/archivo@npm:^0.2.3":
+  version: 0.2.3
+  resolution: "@expo-google-fonts/archivo@npm:0.2.3"
+  checksum: 10c0/94b8cca13924a681c895f6b73d50f1eb7115abb82e585e05a2c1a0c67b9be365f1aa2ceed167d191a4cec01c460a73e12df22571e67fb5b80e050485f83cd7b3
+  languageName: node
+  linkType: hard
+
+"@expo-google-fonts/viga@npm:^0.2.3":
+  version: 0.2.3
+  resolution: "@expo-google-fonts/viga@npm:0.2.3"
+  checksum: 10c0/6717f0a2a592b0405e967fbb1f14db3112e4dca627f3114dd0d6f197d3badb1507693d1408ad0d547f844d5c8b5adbe450a988af091985e76407453a0ea07a26
+  languageName: node
+  linkType: hard
+
 "@expo/bunyan@npm:^4.0.0":
   version: 4.0.0
   resolution: "@expo/bunyan@npm:4.0.0"
@@ -7513,6 +7527,8 @@ __metadata:
   resolution: "react-native-appstravaganza@workspace:."
   dependencies:
     "@babel/core": "npm:^7.19.3"
+    "@expo-google-fonts/archivo": "npm:^0.2.3"
+    "@expo-google-fonts/viga": "npm:^0.2.3"
     "@expo/metro-runtime": "npm:^3.1.1"
     "@faker-js/faker": "npm:^8.4.1"
     "@react-navigation/native": "npm:^6.1.18"

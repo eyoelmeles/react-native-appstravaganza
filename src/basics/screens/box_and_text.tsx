@@ -12,6 +12,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { faker } from "@faker-js/faker";
 import { Entypo } from "@expo/vector-icons";
+import { Viga_400Regular, useFonts } from "@expo-google-fonts/viga";
 
 const SPACING = 20;
 
@@ -28,6 +29,8 @@ const data = Array(2)
 
 const BoxAndText = () => {
   const scrollY = React.useRef(new Animated.Value(0)).current;
+  const [loaded, error] = useFonts({ Viga_400Regular });
+
   return (
     <>
       <LinearGradient
@@ -54,7 +57,16 @@ const BoxAndText = () => {
                 Lookin' good, Joe
               </Text>
               <View>
-                <Text style={[styles.heading, { color: "#fff" }]}>
+                <Text
+                  style={[
+                    styles.heading,
+                    {
+                      color: "#fff",
+                      fontFamily: "Viga_400Regular",
+                      fontSize: 42,
+                    },
+                  ]}
+                >
                   Make Everyday
                 </Text>
                 <Text style={[styles.heading, { color: "#fff" }]}>
@@ -140,7 +152,7 @@ const BoxAndText = () => {
                     </View>
                   </View>
                   <View style={{ alignItems: "flex-end" }}>
-                    <Text style={[styles.h5, {color: "#"}]}>37 min</Text>
+                    <Text style={[styles.h5, { color: "#" }]}>37 min</Text>
                     <Text>EST WAIT</Text>
                   </View>
                 </View>
